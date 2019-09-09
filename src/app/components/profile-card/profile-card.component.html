@@ -1,0 +1,17 @@
+<div class="profile-card">
+    <div class="profile-img-container">
+        <img [src]="img" alt="profile-image">
+    </div>
+    <div class="title-section">
+        <h2 class="name">Akash Shrivastava</h2>
+        <h3>+91 81094 69746</h3>
+        <h3>shrivastavaakash3894@gmail.com</h3>
+    </div>
+    <div class="social-media">
+        <div class="link" *ngFor="let item of links">
+            <a [href]="item.src">
+                <img width="50px" [src]="item.icon" [alt]="item.name">
+            </a>
+        </div>
+    </div>
+</div>

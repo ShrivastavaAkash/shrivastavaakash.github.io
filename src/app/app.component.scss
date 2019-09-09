@@ -1,0 +1,56 @@
+@import './../vars';
+
+.title {
+    font-size: 64px;
+    position: fixed;
+    top: 3vh;
+    left: 2vw;
+    color: $dark;
+    margin: 0px;
+}
+
+.title::after {
+    content: 'Software Developer';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 100%;
+    color: #d1d1d1;
+    z-index: -1;
+    transition: 0.2s ease;
+}
+
+.title:hover::after {
+    left: 8px;
+    top: 8px;
+}
+
+
+.skills-container {
+    position: fixed;
+    width: 31vw;
+    padding: 0px 2vw;
+    height: 70vh;
+    left: 0px;
+    bottom: 0px;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    grid-gap: 10px;
+
+    @media screen and (max-width: $mobileWidth) {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    }
+}
+
+.skills-container .skill {
+    max-width: 120px;
+    width: 100%;
+    min-width: 80px;
+
+    @media screen and (max-width: $mobileWidth) { 
+        max-width: 50px;
+    }
+}
