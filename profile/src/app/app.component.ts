@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { skills } from './data/skills';
 import { personalData } from './data/personal';
 import { socialMediaSlide } from './animations/load-animations';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +14,12 @@ import { socialMediaSlide } from './animations/load-animations';
 })
 export class AppComponent {
   title = 'profile';
-  skills: string[];
+  skills: any[];
   personalData: any;
 
-  constructor() {
+  constructor(
+    public _sanitizer: DomSanitizer
+  ) {
     this.skills = skills;
     this.personalData = personalData;
   }
