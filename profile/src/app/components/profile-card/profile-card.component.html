@@ -1,15 +1,21 @@
 <div class="profile-card" [@pop]>
+
+    <!-- profile image -->
     <div class="profile-img-container" >
-        <img [src]="img" alt="profile-image">
+        <img [src]="personalData.profileImage" alt="profile-image">
     </div>
+    
+    <!-- details -->
     <div class="title-section">
         <h2 class="name">{{ personalData.name }}</h2>
         <h3>{{ personalData.phone }}</h3>
         <h3>{{ personalData.email }}</h3>
     </div>
+    
+    <!-- social media links -->
     <div class="social-media">
         <div class="link" *ngFor="let item of links">
-            <a [href]="item.src">
+            <a [href]="item.src" [title]="item.name" target="_blank">
                 <img width="50px" [src]="item.icon" [alt]="item.name">
             </a>
         </div>

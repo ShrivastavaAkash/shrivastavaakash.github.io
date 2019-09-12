@@ -28,6 +28,11 @@
         border-top-left-radius: 5vw;
         animation: slideLeft 0.3s ease;
     }
+
+    @media screen and (max-width: $mobileWidth) {
+        width: 70vw;
+        height: 70vh;
+    }
 }
 
 @keyframes slideLeft {
@@ -66,12 +71,15 @@
         position: relative;
         margin: 0px;
         font-weight: lighter;
+        @media screen and (max-width: $mobileWidth) {
+            font-size: 7vw;
+        }
     }
 
     h3 {
         letter-spacing: 2px;
         @media screen and (max-width: $mobileWidth) {
-            font-size: 2.5vw;
+            font-size: 3vw;
         }
     }
 
@@ -87,6 +95,7 @@
     justify-content: space-between;
     align-content: center;
     align-items: center;
+    flex-wrap: wrap;
 
     div {
         padding: 25px;

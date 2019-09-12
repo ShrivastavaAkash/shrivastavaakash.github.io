@@ -7,12 +7,12 @@ export const links: any[] = [
     {
         icon: "https://blog.codepen.io/wp-content/uploads/2012/06/Button-White-Large.png",
         name:"codepen",
-        src: "codepen.io/acash"
+        src: "https://codepen.io/acash"
     },
     {
         icon: "/assets/images/facebook.png",
         name:"facebook",
-        src: "codepen.io/acash"
+        src: "https://www.facebook.com/Akash3894"
     },
     {
         icon: "/assets/images/linkedin.png",
@@ -23,5 +23,15 @@ export const links: any[] = [
         icon: "/assets/images/instagram.png",
         name: "instagram",
         src: "https://www.instagram.com/akash.exe/"
+    },
+    {
+        icon: "/assets/images/github.png",
+        name: "github",
+        src: "https://github.com/ShrivastavaAkash/"
+    },
+    {
+        icon: "/assets/images/stackoverflow.png",
+        name: "stackoverflow",
+        src: "https://stackoverflow.com/users/8528857/akash-shrivastava"
     }
   ]

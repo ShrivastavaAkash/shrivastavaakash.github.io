@@ -7,22 +7,27 @@
     left: 2vw;
     color: $dark;
     margin: 0px;
-}
+    
+    &::before {
+        content: $role;
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        width: 100%;
+        color: #CCC;
+        z-index: -1;
+        transition: 0.2s ease;
 
-.title::after {
-    content: 'Software Developer';
-    position: absolute;
-    left: 5px;
-    top: 5px;
-    width: 100%;
-    color: #d1d1d1;
-    z-index: -1;
-    transition: 0.2s ease;
-}
+    }
 
-.title:hover::after {
-    left: 8px;
-    top: 8px;
+    &:hover::before {
+        left: 8px;
+        top: 8px;
+    }
+
+    @media screen and (max-width: $mobileWidth) {
+        left: 22vw;
+    }
 }
 
 
@@ -42,15 +47,18 @@
 
     @media screen and (max-width: $mobileWidth) {
         grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        width: 20vw;
+        height: 100vh;
     }
-}
 
-.skills-container .skill {
-    max-width: 120px;
-    width: 100%;
-    min-width: 80px;
-
-    @media screen and (max-width: $mobileWidth) { 
-        max-width: 50px;
+    .skill {
+        max-width: 120px;
+        width: 100%;
+        min-width: 80px;
+    
+        @media screen and (max-width: $mobileWidth) { 
+            max-width: 50px;
+            min-width: 0px;
+        }
     }
 }
