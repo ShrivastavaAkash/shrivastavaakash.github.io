@@ -42,7 +42,7 @@ const skillArray = [
     },
     {
       name: "typescript",
-      icon: "https://seeklogo.com/images/T/typescript-logo-B29A3F462D-seeklogo.com.png"
+      icon: "/assets/images/typescript.png"
     },
     {
       name: ".NET Core",
