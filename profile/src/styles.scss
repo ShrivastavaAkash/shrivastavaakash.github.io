@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 @import './vars';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
 
-body {
+body, html {
     padding: 0;
     margin: 0;
+    vertical-align: baseline;
     color: $primaryColor;
     font-family: $font-primary;
 }

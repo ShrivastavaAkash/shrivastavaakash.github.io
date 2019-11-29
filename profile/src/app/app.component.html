@@ -1,5 +1,4 @@
-<h1 class="title">{{ personalData.role }}</h1>
-<div class="skills-container" [@slide]>
-  <img [src]="_sanitizer.bypassSecurityTrustUrl(skill.icon)" alt="test" *ngFor="let skill of skills" [title]="skill.name" class="skill">
+<app-navigation class="navigation"></app-navigation>
+<div [@routeAnimation]="getAnimationData(routerOutlet)">
+    <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>
-<app-profile-card></app-profile-card>

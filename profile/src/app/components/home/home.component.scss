@@ -1,0 +1,70 @@
+@import './../../../vars';
+
+
+.title {
+    font-size: 64px;
+    position: fixed;
+    top: 3vh;
+    left: 2vw;
+    color: $dark;
+    letter-spacing: 10px;
+    margin: 0px;
+    font-weight: bold;
+    
+    &::before {
+        content: $role;
+        position: absolute;
+        left: 5px;
+        letter-spacing: inherit;
+        top: 5px;
+        width: 100%;
+        color: #CCC;
+        z-index: -1;
+        transition: 0.2s ease;
+
+    }
+
+    &:hover::before {
+        left: 8px;
+        top: 8px;
+    }
+
+    @media screen and (max-width: $mobileWidth) {
+        left: 22vw;
+        font-size: 6.5vh;
+        top: 0px;
+    }
+}
+
+.skills-container {
+    position: fixed;
+    width: 31vw;
+    padding: 0px 2vw;
+    height: 70vh;
+    left: 0px;
+    bottom: 0px;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    grid-gap: 10px;
+
+    @media screen and (max-width: $mobileWidth) {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        width: 20vw;
+        height: 100vh;
+    }
+
+    .skill {
+        max-width: 120px;
+        width: 100%;
+        min-width: 80px;
+        border-radius: 10%;
+    
+        @media screen and (max-width: $mobileWidth) { 
+            max-width: 50px;
+            min-width: 0px;
+        }
+    }
+}

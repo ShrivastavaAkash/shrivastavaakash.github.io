@@ -1,0 +1,9 @@
+<a class="card text-dark rounded-0 border-0 blog" [ngClass]="{'expanded': expanded, 'shadow mb-3': !expanded}" >
+    <img class="card-img-top rounded-0 " [src]="blog.img" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title text-truncate" [ngClass]="{'card-img-overlay text-light align-items-end': expanded}">
+            <span [ngClass]="{'font-bold display-4 bg-dark p-2': expanded}">{{ blog.title }}</span>
+        </h5>
+        <p class="card-content" *ngIf="expanded">Some text</p>
+    </div>
+</a>

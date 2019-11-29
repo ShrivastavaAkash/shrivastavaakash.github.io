@@ -14,7 +14,8 @@
     padding: 5vw;
     font-family: $font-primary;
     overflow: hidden;
-
+    box-sizing: unset;
+    
     &::after {
         content: '';
         background-color: $bgDark;

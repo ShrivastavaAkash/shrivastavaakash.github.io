@@ -1,0 +1,5 @@
+<div class="container" id="blogs-container">
+    <div class="align-items-center justify-content-center pt-5">
+        <app-blog [id]="blog[0]" [routerLink]="['/blog', blog[0]]" *ngFor="let blog of blogs"></app-blog>
+    </div>
+</div>

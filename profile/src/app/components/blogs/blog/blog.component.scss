@@ -1,0 +1,10 @@
+img {
+    object-fit: cover;
+    max-height: 150pt;
+}
+
+.expanded {
+    img {
+        max-height: 200pt;
+    }
+}
