@@ -1,6 +1,6 @@
 # Profile
 
-This is my personal profile project, I recently added a [blog](http://shrivastavaakash.github.io/blogs) section on it as well.   
+This is my personal profile project, I recently added a [blog](http://shrivastavaakash.github.io/#/blogs) section on it as well.   
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
 
 ## Development server
