@@ -1,9 +1,12 @@
 <a class="card text-dark rounded-0 border-0 blog" [ngClass]="{'expanded': expanded, 'shadow mb-3': !expanded}" >
     <img class="card-img-top rounded-0 " [src]="blog.img" alt="Card image cap">
+    <div class="card-img-overlay text-light align-items-end position-relative" *ngIf="expanded">
+        <span class="blog-title" [ngClass]="{'font-bold display-4 bg-dark p-2 position-absolute': expanded}">{{ blog.title }}</span>
+    </div>
     <div class="card-body">
-        <h5 class="card-title text-truncate" [ngClass]="{'card-img-overlay text-light align-items-end': expanded}">
-            <span [ngClass]="{'font-bold display-4 bg-dark p-2': expanded}">{{ blog.title }}</span>
-        </h5>
-        <p class="card-content" *ngIf="expanded">Some text</p>
+        <h5 class="card-title text-truncate" *ngIf="!expanded">{{ blog.title }}</h5>
+        <p class="card-content container" *ngIf="expanded">
+            <markdown [src]="id | mdSource"></markdown>
+        </p>
     </div>
 </a>

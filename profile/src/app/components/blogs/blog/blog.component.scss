@@ -7,4 +7,20 @@ img {
     img {
         max-height: 200pt;
     }
+
+    span.blog-title {
+        font-size: 3vw;
+        bottom: 20%;
+    }
+
+    @media screen and (max-width: 1000px) {
+        span.blog-title {
+            font-size: 5vw;
+        }
+    }
+
+    markdown {
+        font-family: 'Open Sans';
+        text-align: justify;
+    }
 }

@@ -23,7 +23,7 @@ import {
         query(':leave', animateChild()),
         group([
           query(':leave', [
-            animate('2000ms ease', style({ 
+            animate('200ms ease', style({ 
                 background: 'red'
              }))
           ]),

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  menuOpen: boolean = false;
+  constructor(private router: Router) {
+    router.events.subscribe((v) => {
+      this.menuOpen = false;
+    });
+   }
 
   ngOnInit() {
   }
