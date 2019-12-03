@@ -18,11 +18,11 @@ const skillArray = [
     },
     {
       name: "angular",
-      icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/250px-Angular_full_color_logo.svg.png"
+      icon: "/assets/images/angular.svg"
     },
     {
       name: "sql-server",
-      icon: "https://www.freeiconspng.com/uploads/sql-server-icon-png-2.png"
+      icon: "https://i.pinimg.com/originals/54/39/38/543938047480731ce324c81222189f2a.png"
     },
     {
       name: "html-5",
@@ -46,7 +46,7 @@ const skillArray = [
     },
     {
       name: ".NET Core",
-      icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/120px-.NET_Core_Logo.svg.png"
+      icon: "/assets/images/NET_Core_Logo.svg"
     },
     {
       name: "node-js",

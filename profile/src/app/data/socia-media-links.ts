@@ -5,7 +5,7 @@ export const links: any[] = [
         src: "mailto:shrivastavaakash3894@gmail.com"
     },
     {
-        icon: "https://blog.codepen.io/wp-content/uploads/2012/06/Button-White-Large.png",
+        icon: "/assets/images/codepen-icon.svg",
         name:"codepen",
         src: "https://codepen.io/acash"
     },
