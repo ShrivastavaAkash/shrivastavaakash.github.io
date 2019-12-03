@@ -3,21 +3,37 @@
 <head>
 
 
-  <meta property="og:title" content="Akash Shrivastava">
-  <meta property="og:description" content="Personal profile and contact details.">
-  <meta property="og:image" content="/assets/Akash_shrivastava.jpg">
-  <meta property="og:url" content="http://shrivastavaakash.github.io/">
+  <meta property="og:title" name="title" content="Akash Shrivastava">
+  <meta property="og:description" name="description" content="Personal profile and contact details.">
+  <meta property="og:image" name="image" content="/assets/Akash_shrivastava.jpg">
+  <meta property="og:url" name="url" content="http://shrivastavaakash.github.io/">
   <meta name="twitter:card" content="profile picture">
-
 
   <meta charset="utf-8">
   <meta name="theme-color" content="#222">
   <title>Akash Shrivastava</title>
-  <meta name="description" content="Personal profile and contact details.">
-  <meta name=”keywords” content=”Akash, Shrivastava, Software, Developer, JavaScript, Front End, Akash Shrivastava, shrivastavaakash”/>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1032282317109180',
+          xfbml      : true,
+          version    : 'v5.0'
+        });
+        FB.AppEvents.logPageView();
+      };
+    
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147732164-1"></script>
@@ -27,7 +43,6 @@
     gtag('js', new Date());
     gtag('config', 'UA-147732164-1');
   </script>
-  
 </head>
 <body>
   <app-root></app-root>

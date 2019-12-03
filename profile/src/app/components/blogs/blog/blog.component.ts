@@ -1,22 +1,26 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogsService } from 'src/app/services/blogs/blogs.service';
 import { MdSourcePipe } from 'src/app/pipes/md-source/md-source.pipe';
 import { Subscription } from 'rxjs';
+import { Meta, Title } from '@angular/platform-browser';
+import { personalData } from 'src/app/data/personal';
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss']
 })
-export class BlogComponent implements OnInit, OnDestroy {
+export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() id: string = null;
   blog :any;
   expanded: boolean;
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
-      private service: BlogsService
+      private service: BlogsService,
+      private meta: Meta,
+      private title: Title
     ) {
     }
 
@@ -27,11 +31,21 @@ export class BlogComponent implements OnInit, OnDestroy {
         .subscribe(data => {
           this.id = data.get('id');
           this.getData();
+          this.title.setTitle(this.blog.title);
+          this.meta.updateTag({ name: "image", content: this.blog.img });
+          this.meta.updateTag({ name: "description", content: this.blog.description });
+          this.meta.updateTag({ name: "og:image", content: this.blog.img });
+          this.meta.updateTag({ name: "og:description", content: this.blog.description });
         })
         .unsubscribe();
-    }else{
+    } else {
       this.getData();
     }
+  }
+
+  ngAfterViewInit() {
+    // reparse - comments plugin
+    FB.XFBML.parse(); 
   }
 
   getData(){
@@ -42,5 +56,9 @@ export class BlogComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     this.subscription.unsubscribe();
+  }
+
+  getFacebookCommentsLink(id: string) {
+    return personalData.website + '/#/blog/' + id;
   }
 }

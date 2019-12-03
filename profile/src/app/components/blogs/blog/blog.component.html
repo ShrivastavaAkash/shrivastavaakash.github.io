@@ -1,12 +1,13 @@
 <a class="card text-dark rounded-0 border-0 blog" [ngClass]="{'expanded': expanded, 'shadow mb-3': !expanded}" >
     <img class="card-img-top rounded-0 " [src]="blog.img" alt="Card image cap">
     <div class="card-img-overlay text-light align-items-end position-relative" *ngIf="expanded">
-        <span class="blog-title" [ngClass]="{'font-bold display-4 bg-dark p-2 position-absolute': expanded}">{{ blog.title }}</span>
+        <span class="blog-title" [ngClass]="{'font-bold display-4 bg-dark p-2 position-absolute': expanded}">{{ blog.description }}</span>
     </div>
     <div class="card-body">
-        <h5 class="card-title text-truncate" *ngIf="!expanded">{{ blog.title }}</h5>
-        <p class="card-content container" *ngIf="expanded">
+        <h5 class="card-title text-truncate" *ngIf="!expanded">{{ blog.description }}</h5>
+        <div class="card-content container" *ngIf="expanded">
             <markdown [src]="id | mdSource"></markdown>
-        </p>
+            <div class="fb-comments" [attr.data-href]="getFacebookCommentsLink(blog.id)" data-numposts="5" data-width="100%"></div>
+        </div>
     </div>
 </a>
