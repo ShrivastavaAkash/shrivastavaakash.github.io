@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlogsService } from 'src/app/services/blogs/blogs.service';
 import { MdSourcePipe } from 'src/app/pipes/md-source/md-source.pipe';
 import { Subscription } from 'rxjs';
@@ -18,6 +18,7 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute,
+      private router: Router,
       private service: BlogsService,
       private meta: Meta,
       private title: Title
@@ -35,9 +36,11 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
           this.meta.updateTag({ name: "image", content: this.blog.img });
           this.meta.updateTag({ name: "description", content: this.blog.description });
           this.meta.updateTag({ name: "title", content: this.blog.title });
+          this.meta.updateTag({ name: "url", content: this.router.url });
           this.meta.updateTag({ property: "og:image", content: this.blog.img });
           this.meta.updateTag({ property: "og:description", content: this.blog.description });
           this.meta.updateTag({ property: "og:title", content: this.blog.title });
+          this.meta.updateTag({ name: "og:url", content: this.router.url });
         })
         .unsubscribe();
     } else {
