@@ -21,5 +21,8 @@ export class SeoService {
     this.meta.updateTag({ name: "image", content: personalData.profileImage });
     this.meta.updateTag({ name: "description", content: personalData.description });
     this.meta.updateTag({ name: "url", content: personalData.website });
+    this.meta.updateTag({ property: "og:image", content: personalData.profileImage });
+    this.meta.updateTag({ property: "og:description", content: personalData.description });
+    this.meta.updateTag({ property: "og:url", content: personalData.website });
   }
 }

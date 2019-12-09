@@ -34,8 +34,10 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
           this.title.setTitle(this.blog.title);
           this.meta.updateTag({ name: "image", content: this.blog.img });
           this.meta.updateTag({ name: "description", content: this.blog.description });
-          this.meta.updateTag({ name: "og:image", content: this.blog.img });
-          this.meta.updateTag({ name: "og:description", content: this.blog.description });
+          this.meta.updateTag({ name: "title", content: this.blog.title });
+          this.meta.updateTag({ property: "og:image", content: this.blog.img });
+          this.meta.updateTag({ property: "og:description", content: this.blog.description });
+          this.meta.updateTag({ property: "og:title", content: this.blog.title });
         })
         .unsubscribe();
     } else {

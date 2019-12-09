@@ -22,7 +22,6 @@ export class BlogsComponent implements OnInit{
   ngOnInit() {
     this.service.blogs$.subscribe(
       map => {
-        console.log(map);
         this.blogs = Array.from(map.keys());
       }
     );
