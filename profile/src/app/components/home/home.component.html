@@ -1,5 +1,5 @@
 <h1 class="title">{{ personalData.role }}</h1>
 <div class="skills-container" [@slide]>
-    <img [src]="_sanitizer.bypassSecurityTrustUrl(skill.icon)" alt="test" *ngFor="let skill of skills" [title]="skill.name" class="skill">
+    <img [src]="sanitize(skill.icon)" alt="test" *ngFor="let skill of skills" [title]="skill.name" class="skill">
 </div>
 <app-profile-card></app-profile-card>

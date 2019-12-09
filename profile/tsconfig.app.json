@@ -6,6 +6,9 @@
       "facebook-js-sdk" // facebook
     ]
   },
+  "angularCompilerOptions": {
+    "enableIvy": true
+  },
   "files": [
     "src/main.ts",
     "src/polyfills.ts"

@@ -28,7 +28,7 @@ import {
              }))
           ]),
           query(':enter', [
-            animate('500ms ease', style({ 
+            animate('300ms ease', style({ 
                 opacity: 1,
                 paddingTop: '0px',
                 width: '100%'
