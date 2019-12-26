@@ -5,5 +5,12 @@ export const blogs = new Map<string, any> ([
       title: "My First Blog",
       date: "Nov 30, 2019",
       author: "Akash Shrivastava"
+    }],
+    ["spa-for-blogs", {
+      img: "https://i.pinimg.com/originals/7d/c2/ed/7dc2ed36705616dd92c073aefb809a35.jpg",
+      description: "Why SPAs aren't the best choice for blogs!",
+      title: "Problems with an SPA site for blogs",
+      date: "Dec 27, 2019",
+      author: "Akash Shrivastava"
     }]
   ]);

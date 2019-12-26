@@ -4,7 +4,7 @@
         <span class="blog-title" [ngClass]="{'font-bold display-4 bg-dark p-2 position-absolute': expanded}">{{ blog.description }}</span>
     </div>
     <div class="card-body">
-        <h4 class="card-title text-truncate" *ngIf="!expanded">{{ blog.description }}</h4>
+        <h4 class="card-title" [ngClass]="{'text-truncate': expanded}" *ngIf="!expanded">{{ blog.description }}</h4>
         <h6 class="text-secondary m-0" *ngIf="!expanded"><b>{{ blog.date }}&nbsp;&bull;&nbsp;</b>{{ blog.author }}</h6>
         <div class="card-content container" *ngIf="expanded">
             <h5 class="pb-4 text-secondary text-right blog-meta"><b>{{ blog.date }}&nbsp;&bull;&nbsp;</b>{{ blog.author }}</h5>
