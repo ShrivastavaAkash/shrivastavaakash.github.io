@@ -8,16 +8,15 @@ import {
   export const slideInAnimation =
     trigger('routeAnimation', [
       transition('blogs <=> blog', [
-        style({ position: 'relative' }),
         query(':enter, :leave', [
           style({
               position: 'absolute',
-              transform: 'translate(-50%)',
+              transform: 'translateX(-50%)',
               left: '50%',
               display: 'block',
               width: '60%',
               opacity: 0,
-              paddingTop: '3rem'
+              top: "0px"
             })
         ]),
         query(':leave', animateChild()),

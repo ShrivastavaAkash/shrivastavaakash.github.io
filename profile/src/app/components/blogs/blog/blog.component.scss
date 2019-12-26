@@ -5,7 +5,7 @@ img {
 
 .expanded {
     img {
-        max-height: 200pt;
+        max-height: 240pt;
     }
 
     span.blog-title {
@@ -16,6 +16,13 @@ img {
     @media screen and (max-width: 1000px) {
         span.blog-title {
             font-size: 5vw;
+        }
+    }
+
+    .blog-meta {
+        font-size: 1rem;
+        b {
+            letter-spacing: 1px; 
         }
     }
 

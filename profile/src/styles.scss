@@ -10,3 +10,7 @@ body, html {
     color: $primaryColor;
     font-family: $font-primary;
 }
+
+.fb-comments iframe {
+    width: 100%!important;
+}
