@@ -63,7 +63,7 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
     this.subscription.unsubscribe();
   }
 
-  getFacebookCommentsLink(id: string) {
-    return personalData.website + '/#/blog/' + id;
+  getFacebookCommentsLink() {
+    return this.router.url;
   }
 }
