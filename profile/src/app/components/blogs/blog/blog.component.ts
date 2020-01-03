@@ -64,6 +64,6 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   getFacebookCommentsLink() {
-    return this.router.url;
+    return window.location.href;
   }
 }
