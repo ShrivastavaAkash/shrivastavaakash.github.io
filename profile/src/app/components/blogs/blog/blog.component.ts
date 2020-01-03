@@ -33,11 +33,11 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
           this.id = data.get('id');
           this.getData();
           this.title.setTitle(this.blog.title);
-          this.meta.updateTag({ name: "image", content: this.blog.img });
+          this.meta.updateTag({ name: "image", content: this.blog.image });
           this.meta.updateTag({ name: "description", content: this.blog.description });
           this.meta.updateTag({ name: "title", content: this.blog.title });
           this.meta.updateTag({ name: "url", content: this.router.url });
-          this.meta.updateTag({ property: "og:image", content: this.blog.img });
+          this.meta.updateTag({ property: "og:image", content: this.blog.image });
           this.meta.updateTag({ property: "og:description", content: this.blog.description });
           this.meta.updateTag({ property: "og:title", content: this.blog.title });
           this.meta.updateTag({ name: "og:url", content: this.router.url });

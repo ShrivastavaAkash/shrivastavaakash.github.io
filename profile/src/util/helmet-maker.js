@@ -12,7 +12,7 @@ const config = require("./config");
     const generateHTML = (metaTags) => fs.readFileSync(config.templatePath, {encoding: 'utf-8'}).toString().replace(config.placeholderInTemplate, metaTags);
 
     // All the meta tags to be included from metaData file
-    const pickMetaProperties = ({img, description, title, author}) => ({img, description, title, author});
+    const pickMetaProperties = ({ image, description, title, author }) => ({ image, description, title, author });
 
     const createDirIfNotExist = (dir) => {
         if (!fs.existsSync(dir))
