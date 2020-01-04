@@ -5,7 +5,7 @@ It's not that I haven't tried, it's just that I never really got around to compl
 
 But, all's well that ends well and I think I ended up with a pretty good setup, especially considering the minimal efforts I've put in setting it.
 
-Well,it's up now and apart from sharing my over exceitement, I also wanted my first blog to be about how I got it all set up. It's quite a minimal setup can be done quickly and for anyone who like this setup and design I welcome you to fork this and start your own.
+Well, it's up now and apart from sharing my over exceitement, I also wanted my first blog to be about how I got it all set up. It's quite a minimal setup can be done quickly and for anyone who like this setup and design I welcome you to fork this and start your own.
 
 ---
 
