@@ -12,5 +12,12 @@ export const blogs = new Map<string, any> ([
       title: "Problems with an SPA site for blogs",
       date: "Dec 27, 2019",
       author: "Akash Shrivastava"
+    }],
+    ["prerender-on-build", {
+      image: "https://i.pinimg.com/originals/40/2d/21/402d214da8f227acffadda2e09e9097b.jpg",
+      description: "How to prerender your static single-page application without implenting server-side-rendering or needing any back-end infrastructure at all.",
+      title: "Pre-render static SPA without a live back-end",
+      date: "Jan 05, 2020",
+      author: "Akash Shrivastava"
     }]
   ]);

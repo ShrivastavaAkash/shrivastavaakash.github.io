@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "gh-build": "ng build --prod && cd ./src/util/ && node helmet-maker.js && cd ../../",
-    "root-overwrite": "cd ./src/util/ && node overwrite-root-folder.js && cd ../../",
+    "move-build": "cd ./src/util/ && node overwrite-root-folder.js && cd ../../",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
