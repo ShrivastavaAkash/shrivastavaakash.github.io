@@ -1,28 +1,15 @@
-# Profile
+# Introduction
 
-This is my personal profile project, I recently added a [blog](http://shrivastavaakash.github.io/#/blogs) section on it as well.   
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
+This is a [profile website](https://shrivastavaakash.github.io/) and [Blog](https://shrivastavaakash.github.io/blogs) project.   
 
-## Development server
+This project was created with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3, with Bootstrap for UI styling.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+For blogging, I've added [ngx-markdown](https://github.com/jfcere/ngx-markdown/).
 
-## Code scaffolding
+Head over to the [Blog](https://shrivastavaakash.github.io/blogs), there I have written some posts that discuss the setup process for it in details. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Some posts that discuss the setup:
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. [My First Blog](http://shrivastavaakash.github.io/blog/my-first-blog)
+2. [Problems with an SPA site for blogs](http://shrivastavaakash.github.io/blog/spa-for-blogs)
+3. [Pre-render static SPA without a live back-end](http://shrivastavaakash.github.io/blog/prerender-on-build)
