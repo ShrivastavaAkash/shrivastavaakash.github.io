@@ -14,7 +14,7 @@
         <div class="card-content container" *ngIf="expanded">
             <h5 class="pb-4 text-secondary text-right blog-meta"><b>{{ blog.date }}&nbsp;&bull;&nbsp;</b>{{ blog.author }}</h5>
             <markdown [src]="id | mdSource"></markdown>
-            <div class="fb-comments" [attr.data-href]="getFacebookCommentsLink()" data-numposts="5" data-width="100%"></div>
+            <div class="fb-comments mt-5" [attr.data-href]="getFacebookCommentsLink()" data-numposts="5" data-width="100%"></div>
         </div>
     </div>
 </a>
