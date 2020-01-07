@@ -1,6 +1,14 @@
+
 img {
     object-fit: cover;
     max-height: 150pt;
+    height: 150pt;
+    transition: opacity 0.3s ease, height 0.3s ease;
+    opacity: 1;
+}
+
+img.opacity-0 {
+    opacity: 0!important;
 }
 
 @media screen and (max-width: 1000px) {
@@ -10,7 +18,11 @@ img {
 }
 
 .expanded {
+
+    transition: all 0.3s ease;
+
     img {
+        height: 240pt;
         max-height: 240pt;
     }
 

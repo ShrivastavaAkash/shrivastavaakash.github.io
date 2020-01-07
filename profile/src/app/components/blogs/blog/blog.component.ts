@@ -5,6 +5,7 @@ import { MdSourcePipe } from 'src/app/pipes/md-source/md-source.pipe';
 import { Subscription } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { personalData } from 'src/app/data/personal';
+import { LoadedDirective } from './../../../directives/loaded.directive';
 
 @Component({
   selector: 'app-blog',
@@ -16,6 +17,7 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
   blog :any;
   expanded: boolean;
   subscription: Subscription;
+  _imgLoaded: boolean = false;
 
   constructor(private route: ActivatedRoute,
       private router: Router,
@@ -41,6 +43,7 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
           this.meta.updateTag({ property: "og:description", content: this.blog.description });
           this.meta.updateTag({ property: "og:title", content: this.blog.title });
           this.meta.updateTag({ name: "og:url", content: this.router.url });
+          this.meta.updateTag({ name: "theme-color", content: this.blog.bgDomColor });
         })
         .unsubscribe();
     } else {
@@ -66,4 +69,9 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
   getFacebookCommentsLink() {
     return window.location.href;
   }
+
+  imgLoaded = () => { 
+    console.log("image laoded");
+    this._imgLoaded = true; 
+  } 
 }

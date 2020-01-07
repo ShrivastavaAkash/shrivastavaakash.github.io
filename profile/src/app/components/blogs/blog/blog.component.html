@@ -1,11 +1,11 @@
-<a class="card text-dark rounded-0 border-0 blog" [ngClass]="{'expanded': expanded, 'shadow mb-3': !expanded}" >
-    <img class="card-img-top rounded-0 " [src]="blog.image" alt="Card image cap">
-    <div class="card-img-overlay text-light align-items-end position-relative" *ngIf="expanded">
+<a class="card text-dark rounded-0 border-0 blog" [ngClass]="{'expanded': expanded, 'shadow mb-3': !expanded}" [style.backgroundColor]="blog.bgDomColor">
+    <img class="card-img-top rounded-0 " [ngClass]="{'opacity-0': !_imgLoaded}" [src]="blog.image" alt="Card image cap" (load)="imgLoaded()">
+    <div class="card-img-overlay bg-white text-light align-items-end position-relative" *ngIf="expanded">
         <span class="blog-title" [ngClass]="{'font-bold display-4 bg-dark p-2 position-absolute': expanded}">
             {{ blog.title }}
         </span>
     </div>
-    <div class="card-body">
+    <div class="card-body bg-white">
         <div class="row">
             <h5 class="card-title font-weight-bold my-0 col-lg-8" [ngClass]="{'text-truncate': expanded}" *ngIf="!expanded">{{ blog.title }}</h5>
             <h6 class="text-secondary col-lg-4 mt-2 mb-0 text-lg-right author" *ngIf="!expanded"><b>{{ blog.date }}&nbsp;&bull;&nbsp;</b>{{ blog.author }}</h6>
