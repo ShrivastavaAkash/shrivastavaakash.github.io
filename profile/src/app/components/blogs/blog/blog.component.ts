@@ -43,7 +43,7 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
           this.meta.updateTag({ property: "og:description", content: this.blog.description });
           this.meta.updateTag({ property: "og:title", content: this.blog.title });
           this.meta.updateTag({ name: "og:url", content: this.router.url });
-          this.meta.updateTag({ name: "theme-color", content: this.blog.bgDomColor });
+          this.meta.updateTag({ name: "theme-color", content: this.blog.theme_color });
         })
         .unsubscribe();
     } else {

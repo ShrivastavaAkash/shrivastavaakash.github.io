@@ -12,7 +12,7 @@ const config = require("./config");
     const generateHTML = (metaTags) => fs.readFileSync(config.templatePath, {encoding: 'utf-8'}).toString().replace(config.placeholderInTemplate, metaTags);
 
     // All the meta tags to be included from metaData file
-    const pickMetaProperties = ({ image, description, title, author }) => ({ image, description, title, author });
+    const pickMetaProperties = ({ image, description, title, author, theme_color }) => ({ image, description, title, author, theme_color });
 
     const createDirIfNotExist = (dir) => {
         if (!fs.existsSync(dir))
@@ -48,7 +48,7 @@ fs.readFile(config.metaDataTSSource, (e, content) => {
             // Create folder for helmet
             createDirIfNotExist(config.parentDirectoryName + "/" + v.name);
             // write index.html
-            fs.writeFile( config.parentDirectoryName + "/" + v.name + "/" + config.filename, generateHTML(v.value), () => {});
+            fs.writeFile( config.parentDirectoryName + "/" + v.name + "/" + config.filename, generateHTML(v.value.replace(/_/g, "-")), () => {});
         });
     });
 });
