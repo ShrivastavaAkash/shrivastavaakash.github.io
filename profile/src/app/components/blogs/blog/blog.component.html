@@ -10,7 +10,7 @@
             <h5 class="card-title font-weight-bold my-0 col-lg-8" [ngClass]="{'text-truncate': expanded}" *ngIf="!expanded">{{ blog.title }}</h5>
             <h6 class="text-secondary col-lg-4 mt-2 mb-0 text-lg-right author" *ngIf="!expanded"><b>{{ blog.date }}&nbsp;&bull;&nbsp;</b>{{ blog.author }}</h6>
         </div>
-        <p class="card-title m-0 pt-2" [ngClass]="{'text-truncate': expanded}" *ngIf="!expanded">{{ blog.description }}</p>
+        <p class="card-title m-0 pt-2 text-justify" [ngClass]="{'text-truncate': expanded}" *ngIf="!expanded">{{ blog.description }}</p>
         <div class="card-content container" *ngIf="expanded">
             <h5 class="pb-4 text-secondary text-right blog-meta"><b>{{ blog.date }}&nbsp;&bull;&nbsp;</b>{{ blog.author }}</h5>
             <markdown [src]="id | mdSource"></markdown>

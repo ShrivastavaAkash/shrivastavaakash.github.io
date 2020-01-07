@@ -4,5 +4,6 @@ export const personalData = {
     role: "___ Developer.",
     profileImage: ("https://" + window.location.host) + "/assets/images/Akash_shrivastava.jpg",
     description: "Personal profile, blog and contact details.",
-    website: ("https://" + window.location.host)
+    website: ("https://" + window.location.host),
+    themeColor: "#222222"
 }

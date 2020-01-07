@@ -5,6 +5,11 @@ img {
     height: 150pt;
     transition: opacity 0.3s ease, height 0.3s ease;
     opacity: 1;
+    width: 100% !important;
+
+    @media screen and (max-width: 1000px) {
+        height: 100pt;
+    }
 }
 
 img.opacity-0 {
@@ -24,6 +29,11 @@ img.opacity-0 {
     img {
         height: 240pt;
         max-height: 240pt;
+        width: 100%!important;
+        @media screen and (max-width: 1000px) {
+            min-height: 100pt!important;
+            height: auto!important;
+        }
     }
 
     span.blog-title {

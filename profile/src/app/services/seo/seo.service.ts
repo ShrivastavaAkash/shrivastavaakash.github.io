@@ -24,5 +24,6 @@ export class SeoService {
     this.meta.updateTag({ property: "og:image", content: personalData.profileImage });
     this.meta.updateTag({ property: "og:description", content: personalData.description });
     this.meta.updateTag({ property: "og:url", content: personalData.website });
+    this.meta.updateTag({ property: "theme-color", content: personalData.themeColor });
   }
 }
