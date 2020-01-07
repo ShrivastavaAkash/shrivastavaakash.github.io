@@ -9,15 +9,13 @@ import { HomeComponent } from './components/home/home.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BlogsModule } from './blogs.module';
-import { LoadedDirective } from './directives/loaded.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileCardComponent,
     NavigationComponent,
-    HomeComponent,
-    LoadedDirective
+    HomeComponent
   ],
   imports: [
     BrowserModule,

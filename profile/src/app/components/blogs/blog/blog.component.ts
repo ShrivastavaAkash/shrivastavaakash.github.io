@@ -5,7 +5,6 @@ import { MdSourcePipe } from 'src/app/pipes/md-source/md-source.pipe';
 import { Subscription } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 import { personalData } from 'src/app/data/personal';
-import { LoadedDirective } from './../../../directives/loaded.directive';
 
 @Component({
   selector: 'app-blog',
