@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta property="fb:app_id" content="1032282317109180" /> 
+        <meta property="og:type" content="website" />
+
+		<meta name="image" content="https://i.pinimg.com/originals/ff/08/11/ff08113a3beb1009487fe32e27dd5ce1.jpg" />
+		<meta property="og:image" content="https://i.pinimg.com/originals/ff/08/11/ff08113a3beb1009487fe32e27dd5ce1.jpg" />
+		<meta name="description" content="How to handle binding redirects with class library projects having no config files of their own" />
+		<meta property="og:description" content="How to handle binding redirects with class library projects having no config files of their own" />
+		<title>Binding redirects for class library projects</title>
+		<meta name="title" content="Binding redirects for class library projects" />
+		<meta property="og:title" content="Binding redirects for class library projects" />
+		<meta name="author" content="Akash Shrivastava" />
+		<meta property="og:author" content="Akash Shrivastava" />
+		<meta name="theme-color" content="#67217a" />
+		<meta property="og:theme-color" content="#67217a" />
+
+
+        <script type="text/javascript">
+            var botPattern = "(googlebot\/|bot|Googlebot-Mobile|Googlebot-Image|Google favicon|Mediapartners-Google|bingbot|slurp|java|wget|curl|Commons-HttpClient|Python-urllib|libwww|httpunit|nutch|phpcrawl|msnbot|jyxobot|FAST-WebCrawler|FAST Enterprise Crawler|biglotron|teoma|convera|seekbot|gigablast|exabot|ngbot|ia_archiver|GingerCrawler|webmon |httrack|webcrawler|grub.org|UsineNouvelleCrawler|antibot|netresearchserver|speedy|fluffy|bibnum.bnf|findlink|msrbot|panscient|yacybot|AISearchBot|IOI|ips-agent|tagoobot|MJ12bot|dotbot|woriobot|yanga|buzzbot|mlbot|yandexbot|purebot|Linguee Bot|Voyager|CyberPatrol|voilabot|baiduspider|citeseerxbot|spbot|twengabot|postrank|turnitinbot|scribdbot|page2rss|sitebot|linkdex|Adidxbot|blekkobot|ezooms|dotbot|Mail.RU_Bot|discobot|heritrix|findthatfile|europarchive.org|NerdByNature.Bot|sistrix crawler|ahrefsbot|Aboundex|domaincrawler|wbsearchbot|summify|ccbot|edisterbot|seznambot|ec2linkfinder|gslfbot|aihitbot|intelium_bot|facebookexternalhit|yeti|RetrevoPageAnalyzer|lb-spider|sogou|lssbot|careerbot|wotbox|wocbot|ichiro|DuckDuckBot|lssrocketcrawler|drupact|webcompanycrawler|acoonbot|openindexspider|gnam gnam spider|web-archive-net.com.bot|backlinkcrawler|coccoc|integromedb|content crawler spider|toplistbot|seokicks-robot|it2media-domain-crawler|ip-web-crawler.com|siteexplorer.info|elisabot|proximic|changedetection|blexbot|arabot|WeSEE:Search|niki-bot|CrystalSemanticsBot|rogerbot|360Spider|psbot|InterfaxScanBot|Lipperhey SEO Service|CC Metadata Scaper|g00g1e.net|GrapeshotCrawler|urlappendbot|brainobot|fr-crawler|binlar|SimpleCrawler|Livelapbot|Twitterbot|cXensebot|smtbot|bnf.fr_bot|A6-Indexer|ADmantX|Facebot|Twitterbot|OrangeBot|memorybot|AdvBot|MegaIndex|SemanticScholarBot|ltx71|nerdybot|xovibot|BUbiNG|Qwantify|archive.org_bot|Applebot|TweetmemeBot|crawler4j|findxbot|SemrushBot|yoozBot|lipperhey|y!j-asr|Domain Re-Animator Bot|AddThis)";
+            var re = new RegExp(botPattern, 'i');
+            var userAgent = navigator.userAgent; 
+            if (!re.test(userAgent)) {
+                var segmentCount = 0;
+                var l = window.location;
+                l.replace(
+                l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+                l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?p=/' +
+                l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+                (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+                l.hash
+                );
+            }
+          </script>
+    </head>
+<body>
+    <p>Recently, While working on one of the class library projects I got stuck with an interesting problem. The class library project had 2 NuGet packages that referenced same dependency but with different versions.</p>
+<p>Now, in an application project having a configuration file of its own, these kind of problems are dealt with by using <a href="https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/bindingredirect-element">binding redirect</a> entries in the configuration file.
+However, since the class library project I was working on was supposed to be referenced as a dependency, it did not have its own config file, it was meant to use the config (and binding redirects) of the project in which it was to be referenced.</p>
+<h2 id="bindingredirects">Binding Redirects</h2>
+<p>In .NET, binding redirects are there to handle version conflicts or version redirection among referenced assemblies.</p>
+<p>For example, if you add a NuGet reference to a package say (say <code>SampleNuget</code>) and this <code>SampleNuget</code> package is compiled to have an internal dependency on <code>NewtonSoft.Json</code> version 6.0, then as soon as you add the <code>SampleNuget</code> a binding redirect entry gets automatically added to your project's config file which looks something like this:</p>
+<pre><code class="xml language-xml">&lt;dependentAssembly&gt;
+    &lt;assemblyIdentity
+        name="Newtonsoft.Json"
+        publicKeyToken="&lt;public key token value&gt;"
+        culture="neutral"
+    /&gt;
+    &lt;bindingRedirect
+        oldVersion="0.0.0.0-12.0.0.0"
+        newVersion="12.0.0.0"
+    /&gt;
+&lt;/dependentAssembly&gt;
+</code></pre>
+<p>This entry means that whenever <code>Newtonsoft.Json</code> assembly is requested the runtime will load the latest version despite the requested version being lower.
+This way you can manage that your project is using the latest version of referenced assemblies instead of legacy ones.</p>
+<p>Similarly, If a project has two references (say <strong>A</strong> &amp; <strong>B</strong>), now project <strong>A</strong> has a compiled dependency on <code>NewtonSoft.JSON version 6.0</code> and project <strong>B</strong> has a compiled dependency on <code>NewtonSoft.json version 9.0</code> then using these Binding Redirects entries you can make sure that a package is not loaded multiple times just because of version differences.
+Since due to binding redirect rules both projects will be provided <code>NewtonSoft.Json version 12.0</code>.</p>
+<h2 id="howtohandlethesewithoutaconfigfile">How to handle these without a config file</h2>
+<p>Since the config file was out of picture in my situation, I explored more options to handle these conflicts from code itself.</p>
+<p>I ended up using the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.appdomain.assemblyresolve?view=netframework-4.8">AppDomain.AssemblyResolve</a> event that is raised whenever a request to load a referenced assembly is failed.
+You can bind an <code>EventHandler</code> of type <a href="https://docs.microsoft.com/en-us/dotnet/api/system.resolveeventhandler?view=netframework-4.8">ResolveEventHandler</a>, and if this <code>EventHandler</code> returns an alternate assembly then the runtime ends us using the alternate assembly instead of the one it requested.
+This way you can implement the similar redirection that would be achieved via those <code>BindingRedirect</code> XML entries in config file.</p>
+<p>A simple (really simple) handler would be something like:</p>
+<pre><code class="csharp language-csharp">ResolveEventHandler eventHandler = (sender, args) =&gt; {
+    // Get just the name of assmebly
+    // Aseembly name excluding version and other metadata
+    string name = new Regex(",.*").Replace(args.Name, string.Empty);
+
+    // Load whatever version available
+    return Assembly.Load(name);
+}
+</code></pre>
+<p>In an actual application you might want to check for already loaded assembly in current <code>AppDomain</code> (see <a href="https://docs.microsoft.com/en-us/dotnet/api/system.appdomain.getassemblies?view=netframework-4.8">AppDomain.GetAssemblies Method</a>) and whether you can use any of those as a replacement.
+If none of the assemblies loaded in AppDomain match the name of assembly we need, then just load a new one (using <a href="https://docs.microsoft.com/en-us/dotnet/api/system.appdomain.load?view=netframework-4.8">AppDomain.Load</a>).</p>
+<h2 id="somelinksyoushouldcheckoutformoreinfo">Some links you should check out for more info</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/bindingredirect-element">&lt;bindingRedirect&gt; Microsoft Docs</a></li>
+<li><a href="https://blog.slaks.net/2013-12-25/redirecting-assembly-loads-at-runtime/">Redirecting Assembly Loads at Runtime</a></li>
+</ul>
+</body>
+</html>

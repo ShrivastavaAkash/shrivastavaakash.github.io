@@ -1,14 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { AppComponent } from './app.component';
-import { ProfileCardComponent } from './components/profile-card/profile-card.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { HomeComponent } from './components/home/home.component';
+import { AppComponent } from "./app.component";
+import { ProfileCardComponent } from "./components/profile-card/profile-card.component";
+import { NavigationComponent } from "./components/navigation/navigation.component";
+import { HomeComponent } from "./components/home/home.component";
 
-import { AppRoutingModule } from './app-routing.module';
-import { BlogsModule } from './blogs.module';
+import { AppRoutingModule } from "./app-routing.module";
+import { BlogsModule } from "./blogs.module";
 
 @NgModule({
   declarations: [
@@ -26,4 +26,4 @@ import { BlogsModule } from './blogs.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

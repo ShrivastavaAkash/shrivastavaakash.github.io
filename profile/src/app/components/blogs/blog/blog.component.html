@@ -1,20 +1,62 @@
-<a class="card text-dark rounded-0 border-0 blog" [ngClass]="{'expanded': expanded, 'shadow mb-3': !expanded}" [style.backgroundColor]="blog.theme_color">
-    <img class="card-img-top rounded-0 " [ngClass]="{'opacity-0': !_imgLoaded}" [src]="blog.image" alt="Card image cap" (load)="imgLoaded()">
-    <div class="card-img-overlay bg-white text-light align-items-end position-relative" *ngIf="expanded">
-        <span class="blog-title" [ngClass]="{'font-bold display-4 bg-dark p-2 position-absolute': expanded}">
-            {{ blog.title }}
-        </span>
+<a
+  class="card text-dark rounded-0 border-0 blog"
+  [ngClass]="{ expanded: expanded, 'shadow mb-3': !expanded }"
+  [style.backgroundColor]="blog.theme_color"
+>
+  <img
+    class="card-img-top rounded-0 "
+    [ngClass]="{ 'opacity-0': !_imgLoaded }"
+    [src]="blog.image"
+    alt="Card image cap"
+    (load)="imgLoaded()"
+  />
+  <div
+    class="card-img-overlay bg-white text-light align-items-end position-relative"
+    *ngIf="expanded"
+  >
+    <span
+      class="blog-title"
+      [ngClass]="{
+        'font-bold display-4 bg-dark p-2 position-absolute': expanded
+      }"
+    >
+      {{ blog.title }}
+    </span>
+  </div>
+  <div class="card-body bg-white">
+    <div class="row">
+      <h5
+        class="card-title font-weight-bold my-0 col-lg-8"
+        [ngClass]="{ 'text-truncate': expanded }"
+        *ngIf="!expanded"
+      >
+        {{ blog.title }}
+      </h5>
+      <h6
+        class="text-secondary col-lg-4 mt-2 mb-0 text-lg-right author"
+        *ngIf="!expanded"
+      >
+        <b>{{ blog.date }}&nbsp;&bull;&nbsp;</b>{{ blog.author }}
+      </h6>
     </div>
-    <div class="card-body bg-white">
-        <div class="row">
-            <h5 class="card-title font-weight-bold my-0 col-lg-8" [ngClass]="{'text-truncate': expanded}" *ngIf="!expanded">{{ blog.title }}</h5>
-            <h6 class="text-secondary col-lg-4 mt-2 mb-0 text-lg-right author" *ngIf="!expanded"><b>{{ blog.date }}&nbsp;&bull;&nbsp;</b>{{ blog.author }}</h6>
-        </div>
-        <p class="card-title m-0 pt-2 text-justify" [ngClass]="{'text-truncate': expanded}" *ngIf="!expanded">{{ blog.description }}</p>
-        <div class="card-content container" *ngIf="expanded">
-            <h5 class="pb-4 text-secondary text-right blog-meta"><b>{{ blog.date }}&nbsp;&bull;&nbsp;</b>{{ blog.author }}</h5>
-            <markdown [src]="id | mdSource"></markdown>
-            <div class="fb-comments mt-5" [attr.data-href]="getFacebookCommentsLink()" data-numposts="5" data-width="100%"></div>
-        </div>
+    <p
+      class="card-title m-0 pt-2 text-justify"
+      [ngClass]="{ 'text-truncate': expanded }"
+      *ngIf="!expanded"
+    >
+      {{ blog.description }}
+    </p>
+    <div class="card-content container" *ngIf="expanded">
+      <h5 class="pb-4 text-secondary text-right blog-meta">
+        <b>{{ blog.date }}&nbsp;&bull;&nbsp;</b>{{ blog.author }}
+      </h5>
+      <markdown [src]="id | mdSource"></markdown>
+      <div
+        class="fb-comments mt-5"
+        [attr.data-href]="getFacebookCommentsLink()"
+        data-numposts="5"
+        data-width="100%"
+      ></div>
     </div>
+  </div>
 </a>
