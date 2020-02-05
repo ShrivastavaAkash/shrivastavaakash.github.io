@@ -1,17 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
-import { personalData } from './../../data/personal';
+import { Injectable } from "@angular/core";
+import { Title, Meta } from "@angular/platform-browser";
+import { personalData } from "./../../data/personal";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SeoService {
-
-  constructor (
-    private title: Title,
-    private meta: Meta) {
-
-  }
+  constructor(private title: Title, private meta: Meta) {}
 
   SetDefaultTitle() {
     this.title.setTitle(personalData.name);
@@ -19,12 +14,27 @@ export class SeoService {
 
   setDefaultMetaData() {
     this.meta.updateTag({ name: "image", content: personalData.profileImage });
-    this.meta.updateTag({ name: "description", content: personalData.description });
-    this.meta.updateTag({ name: "theme-color", content: personalData.themeColor });
+    this.meta.updateTag({
+      name: "description",
+      content: personalData.description
+    });
+    this.meta.updateTag({
+      name: "theme-color",
+      content: personalData.themeColor
+    });
     this.meta.updateTag({ name: "url", content: personalData.website });
-    this.meta.updateTag({ property: "og:image", content: personalData.profileImage });
-    this.meta.updateTag({ property: "og:description", content: personalData.description });
-    this.meta.updateTag({ property: "og:url", content: personalData.website })
-    
+    this.meta.updateTag({
+      property: "og:image",
+      content: personalData.profileImage
+    });
+    this.meta.updateTag({
+      property: "og:description",
+      content: personalData.description
+    });
+    this.meta.updateTag({ property: "og:url", content: personalData.website });
+  }
+
+  getMetaKeyInfo(key: string) {
+    return this.meta.getTag(key).nodeValue;
   }
 }

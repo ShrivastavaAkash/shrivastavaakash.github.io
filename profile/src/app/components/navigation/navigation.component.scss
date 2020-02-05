@@ -1,160 +1,192 @@
-@import './../../../vars';
+@import "./../../../vars";
 
-nav { 
-    width: 100%;
+nav {
+  width: 100%;
 
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: inherit;
+    padding-right: 40pt;
+    flex: 10 1 0px;
+    animation: slide 0.4s ease;
+
+    .item {
+      padding: 1vw 2vw;
+      text-align: center;
+      transition: letter-spacing 0.3s ease;
+      align-self: flex-end;
+      z-index: 999;
+
+      a {
+        color: #444;
+        text-decoration: none;
+        letter-spacing: 2px;
+        display: block;
+        position: relative;
+        font-weight: bold;
+        transition: 0.3s ease;
+        z-index: 999;
+        font-size: 14pt;
+        transition: color 0.4s ease;
+      }
+
+      a.dark {
+        color: white;
+      }
+
+      ::after {
+        content: "";
+        width: 100%;
+        position: absolute;
+        display: block;
+        height: 1px;
+        background: #444;
+        bottom: -3px;
+        left: 0px;
+        transition: 0.2s ease;
+      }
+
+      a.dark::after {
+        background: white;
+      }
+
+      a.router-link-active {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+
+      :hover {
+        letter-spacing: 5px;
+      }
+    }
+  }
+
+  .menu {
+    display: none;
+  }
+
+  @media screen and (max-width: $mobileWidth) {
     ul {
-        list-style: none;
+      display: none;
+      transform-origin: top right;
+      animation: slide 0.2s ease;
+    }
+
+    .menu.open + ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: $dark;
+      z-index: 99;
+      position: fixed;
+      right: 0px;
+      height: 100vh;
+      width: 70vw;
+      top: 0px;
+      padding: 40pt 0px 40pt 0px;
+
+      .onlyMobile {
+        display: none;
+      }
+
+      .item {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: inherit;
-        padding-right: 40pt;
-        flex: 10 1 0px;
-        animation: slide 0.4s ease;
-        
-
-        .item {
-            padding: 1vw 2vw;
-            text-align: center;
-            transition: letter-spacing 0.3s ease;
-            align-self: flex-end;
-            z-index: 999;
-
-            a {
-                color: #444;
-                text-decoration: none;
-                letter-spacing: 2px;
-                display: block;
-                position: relative;
-                font-weight: bold;
-                transition: 0.3s ease;
-                z-index: 999;
-            }
-
-            a.router-link-active {
-                pointer-events: none;
-                cursor: not-allowed;
-                opacity: 0.6;
-            }
-
-            ::after {
-                content: '';
-                width: 100%;
-                position: absolute;
-                display: block;
-                height: 1px;
-                background: #444;
-                bottom: -3px;
-                left: 0px;
-                transition: 0.2s ease;
-            }
-
-            :hover {
-                letter-spacing: 5px;
-            }
+        width: 100%;
+        padding: 10pt;
+        a {
+          text-indent: 30pt;
+          color: $primaryColor;
         }
+        ::after {
+          background: transparent;
+        }
+      }
+
+      .invisible {
+        display: none;
+      }
     }
 
     .menu {
-        display: none;
+      display: block;
+      position: fixed;
+      right: 20pt;
+      top: 10pt;
+      height: 18pt;
+      width: 18pt;
+      padding: 0px;
+      margin: 0px;
+      border: none;
+      cursor: pointer;
+      z-index: 999;
+
+      .line {
+        display: block;
+        height: 2pt;
+        top: 11pt;
+        background: black;
+        position: relative;
+        top: 0px;
+        transition: 0.2s ease;
+
+        &::before,
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 100%;
+          background: black;
+          left: 0px;
+          height: 2pt;
+          top: 6pt;
+          transform-origin: left;
+          transition: 0.2s ease;
+        }
+        &::after {
+          left: 0px;
+          top: unset;
+          bottom: 6pt;
+        }
+      }
+      .line.light {
+        background: $primaryColor;
+        &::before,
+        &::after {
+          background: $primaryColor;
+        }
+      }
     }
 
-    @media screen and (max-width: $mobileWidth) {
-        ul {
-            display: none;
-            transform-origin: top right;
-            animation: slide 0.4s ease;
+    .menu.open {
+      .line {
+        background: transparent;
+
+        &::after,
+        &::before {
+          background: $primaryColor;
         }
-
-        .menu.open + ul {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            background: $dark;
-            z-index: 99;
-            position: fixed;
-            left: 0px;
-            top: 0px;
-            padding: 40pt 0px 40pt 0px;
-
-            .item {
-                display: flex;
-                width: 100%;
-                padding: 10pt;
-                a {
-                    text-indent: 30pt;
-                    color: $primaryColor;
-                }
-            }
-            
-            .invisible {
-                display: none;
-            }
+        &::after {
+          transform: rotate(45deg);
         }
-
-        .menu {
-            display: block;
-            position: fixed;
-            right: 20pt;
-            top: 10pt;
-            height: 18pt;
-            width: 18pt;
-            padding: 0px;
-            margin: 0px;
-            border: none;
-            cursor: pointer;
-            z-index: 999;
-
-            .line {
-                display: block;
-                height: 2pt;
-                top: 11pt;
-                background: black;
-                position: relative;
-                top: 0px;
-                transition: 0.2s ease;
-
-                &::before, &::after {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    width: 100%;
-                    background: black;
-                    left: 0px;
-                    height: 2pt;
-                    top: 6pt;
-                    transform-origin: left;
-                    transition: 0.2s ease;
-                }
-                &::after {
-                    left: 0px;
-                    top: unset;
-                    bottom: 6pt;
-                }
-            }
+        &::before {
+          transform: rotate(-45deg);
         }
-
-        .menu.open {
-            .line {
-               background: transparent;
-
-                &::after, &::before {
-                    background: $primaryColor;
-                }
-                &::after {
-                    transform: rotate(45deg);
-                }
-                &::before {
-                    transform: rotate(-45deg);
-                }
-            }
-        }
+      }
     }
+  }
 }
 
 @keyframes slide {
-    0% { transform: scale(0.5, 0); opacity: 0; }
-    80% { opacity: 1; }
-    100% { transform: scale(1,1); opacity: 1; }
+  0% {
+    transform: scale(0.5, 1);
+  }
+  80% {
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }

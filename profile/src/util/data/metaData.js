@@ -8,7 +8,8 @@ module.exports.blogs = new Map([
       title: "My First Blog",
       date: "Nov 30, 2019",
       author: "Akash Shrivastava",
-      theme_color: "#02d578"
+      theme_color: "#02d578",
+      tags: ["javascript", "blog", "front-end", "spa"]
     }
   ],
   [
@@ -20,7 +21,8 @@ module.exports.blogs = new Map([
       title: "Problems with an SPA site for blogs",
       date: "Dec 27, 2019",
       author: "Akash Shrivastava",
-      theme_color: "#ede6d4"
+      theme_color: "#ede6d4",
+      tags: ["javascript", "blog", "front-end", "spa", "seo"]
     }
   ],
   [
@@ -33,7 +35,8 @@ module.exports.blogs = new Map([
       title: "Pre-render static SPA without a live back-end",
       date: "Jan 05, 2020",
       author: "Akash Shrivastava",
-      theme_color: "#2aa8ff"
+      theme_color: "#2aa8ff",
+      tags: ["javascript", "blog", "front-end", "spa", "seo"]
     }
   ],
   [
@@ -46,7 +49,8 @@ module.exports.blogs = new Map([
       title: "Binding redirects for class library projects",
       date: "Feb 04, 2020",
       author: "Akash Shrivastava",
-      theme_color: "#67217a"
+      theme_color: "#67217a",
+      tags: ["c-sharp", "dotnet", "back-end"]
     }
   ]
 ]);

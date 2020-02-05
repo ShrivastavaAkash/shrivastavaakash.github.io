@@ -1,5 +1,31 @@
 <div class="container" id="blogs-container">
-    <div class="align-items-center justify-content-center pt-5">
-        <app-blog [id]="blog" [routerLink]="['/blog', blog]" *ngFor="let blog of blogs"></app-blog>
-    </div>
+  <div class="tags mt-5 mb-3 d-flex align-items-start flex-wrap">
+    <h4 class="mr-2"><span class="badge text-dark">Filter by tags: </span></h4>
+
+    <button
+      class="btn py-1 text-bold mr-2 font-weight-bold  shadow-sm"
+      *ngFor="let tag of allTags | keyvalue"
+      [ngClass]="{
+        'btn-dark': tag.value,
+        'btn-light text-primary': !tag.value,
+        'tag-selected': tag.value
+      }"
+      [routerLink]="[
+        '/blogs/tags/' +
+          (tag.value ? removeTagParams(tag.key) : addTagParams(tag.key))
+      ]"
+    >
+      #{{ tag.key }}
+    </button>
+  </div>
+  <div
+    class="align-items-center justify-content-center position-relative"
+    [ngClass]="{ empty: blogs.length == 0 }"
+  >
+    <app-blog
+      [id]="blog"
+      [routerLink]="['/blog', blog]"
+      *ngFor="let blog of blogs"
+    ></app-blog>
+  </div>
 </div>

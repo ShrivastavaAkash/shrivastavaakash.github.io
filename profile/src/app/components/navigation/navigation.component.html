@@ -1,15 +1,30 @@
 <nav>
-    <button class="menu btn" (click)="menuOpen = !menuOpen" [ngClass]="{open: menuOpen}">
-        <span class="line"></span>
-    </button>
-    <ul>
-        <li class="item" routerLinkActive="invisible" [routerLinkActiveOptions]="{ exact: true }">
-            <a [routerLink]="['/']">Home</a>
-        </li>
-        <li class="col filler"></li>
-        <li class="item">
-            <a [routerLink]="['/blogs']" routerLinkActive="router-link-active">Blog</a>
-        </li>
-        <li class="item"><a href="#">Résumé</a></li>
-    </ul>
+  <button
+    class="menu btn"
+    (click)="menuOpen = !menuOpen"
+    [ngClass]="{ open: menuOpen }"
+    aria-label="menu"
+  >
+    <span class="line" [ngClass]="{ light: themeDark }"></span>
+  </button>
+  <ul>
+    <li class="col filler onlyMobile"></li>
+    <li
+      class="item"
+      routerLinkActive="invisible"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a [routerLink]="['/']" [ngClass]="{ dark: themeDark }">Home</a>
+    </li>
+
+    <li class="item">
+      <a
+        [routerLink]="['/blogs']"
+        routerLinkActive="router-link-active"
+        [ngClass]="{ dark: themeDark }"
+        >Blogs</a
+      >
+    </li>
+    <!-- <li class="item"><a href="#" [ngClass]="{ dark: themeDark }">Résumé</a></li> -->
+  </ul>
 </nav>

@@ -1,3 +1,25 @@
+@import "./../../../vars";
+
 body {
-    overflow-y: scroll;
+  overflow-y: scroll;
+}
+
+.empty::after {
+  content: "no posts found!";
+  display: block;
+  color: #666;
+  position: absolute;
+  text-align: center;
+  margin-top: 50px;
+  width: 100%;
+  font-size: 20px;
+  height: 30vh;
+  box-shadow: 0px 0px 10px 0px #ddd;
+  line-height: 30vh;
+}
+
+span.tag-selected {
+  a {
+    color: $primaryColor;
+  }
 }

@@ -7,10 +7,9 @@ import {
 } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { BlogsService } from "src/app/services/blogs/blogs.service";
-import { MdSourcePipe } from "src/app/pipes/md-source/md-source.pipe";
 import { Subscription } from "rxjs";
 import { Meta, Title } from "@angular/platform-browser";
-import { personalData } from "src/app/data/personal";
+import { NavService } from "src/app/services/nav/nav.service";
 
 @Component({
   selector: "app-blog",
@@ -29,7 +28,8 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
     private router: Router,
     private service: BlogsService,
     private meta: Meta,
-    private title: Title
+    private title: Title,
+    private nav: NavService
   ) {}
 
   ngOnInit() {
@@ -66,6 +66,8 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
           });
         })
         .unsubscribe();
+
+      this.nav.updateColor(this.blog.theme_color);
     } else {
       this.getData();
     }
@@ -91,7 +93,8 @@ export class BlogComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   imgLoaded = () => {
-    console.log("image laoded");
     this._imgLoaded = true;
   };
+
+  getTags = () => this.blog.tags.map(v => "#" + v).join(" ");
 }
