@@ -1,6 +1,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://shrivastavaakash.github.io/favicon.ico"
+    />
     <meta property="fb:app_id" content="1032282317109180" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:type" content="website" />
@@ -48,7 +54,7 @@
       }
     </script>
   </head>
-  <body>
+  <body style="font-size: 20px; line-height: 40px">
     <p>If you read my <a href="https://shrivastavaakash.github.io/blog/spa-for-blogs/">last blog post</a>, then you know that I've been having trouble managing the SEO aspect of this blog. Not having a back-end on Github-Pages did demotivate me for a while, but finally I came along with a solution that required least efforts and works perfectly.</p>
 <h3 id="inspiration">Inspiration</h3>
 <p>So, before I start with the details on how I overcame the SEO problem, I would like to mention that there are some projects that did something similar and ultimately inspired me for the approach I ended up using, one such project is <a href="https://github.com/chrisvfritz/prerender-spa-plugin">prerender-spa-plugin</a>, however, in my opinion most of these projects took an approach that was much more complex to implement. What these projects did was to integrate pre-rendering engines like <a href="https://github.com/puppeteer/puppeteer">Puppeteer</a> and rendred all possible routes of their static website with it and then hosted these pre-rendered pages on the web host instead of the actual single-page application.</p>

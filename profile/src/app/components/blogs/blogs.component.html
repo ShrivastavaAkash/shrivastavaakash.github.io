@@ -1,9 +1,15 @@
 <div class="container" id="blogs-container">
-  <div class="tags mt-5 mb-3 d-flex align-items-start flex-wrap">
-    <h4 class="mr-2"><span class="badge text-dark">Filter by tags: </span></h4>
+  <!-- tags -->
+  <div
+    class="tags mt-5 mb-3 d-flex align-items-start flex-wrap"
+    *ngIf="allTags.size > 0"
+  >
+    <h4 class="mr-2 mt-2">
+      <span class="badge text-dark">Filter by tags: </span>
+    </h4>
 
     <button
-      class="btn py-1 text-bold mr-2 font-weight-bold  shadow-sm"
+      class="btn py-1 text-bold mr-2 mt-2 font-weight-bold tag shadow-sm"
       *ngFor="let tag of allTags | keyvalue"
       [ngClass]="{
         'btn-dark': tag.value,
@@ -14,10 +20,13 @@
         '/blogs/tags/' +
           (tag.value ? removeTagParams(tag.key) : addTagParams(tag.key))
       ]"
+      routerLinkActive="border"
     >
       #{{ tag.key }}
     </button>
   </div>
+
+  <!-- Blogs -->
   <div
     class="align-items-center justify-content-center position-relative"
     [ngClass]="{ empty: blogs.length == 0 }"

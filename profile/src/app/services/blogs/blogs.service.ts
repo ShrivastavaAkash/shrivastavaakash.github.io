@@ -19,9 +19,9 @@ export class BlogsService {
   setTagsFilter(tags: string[]) {
     this._blogs.next(
       new Map(
-        Array.from(blogs.entries()).filter(v =>
-          tags.every(t => v[1].tags.includes(t))
-        )
+        Array.from(blogs.entries())
+          .filter(v => tags.every(t => v[1].tags.includes(t)))
+          .sort((a, b) => (new Date(a[1].date) < new Date(b[1].date) ? 1 : -1))
       )
     );
 
