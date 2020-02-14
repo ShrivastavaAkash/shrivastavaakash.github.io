@@ -1,6 +1,6 @@
 # Introduction
 
-This is a [profile website](https://shrivastavaakash.github.io/) and [Blog](https://shrivastavaakash.github.io/blogs) project.   
+This is a [portfolio website](https://shrivastavaakash.github.io/) and [Blog](https://shrivastavaakash.github.io/blogs) project.   
 
 This project was created with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3, with Bootstrap for UI styling.
 
