@@ -3,29 +3,37 @@ const config = require("./config");
 const toDelete = /main-.*.js|index.html|assets|favicon.ico|styles.*.css|polyfills-.*.js|runtime-.*.js|scripts.*.js|3rdpartylicenses.txt/g;
 
 // remove existing
-if (fs.existsSync(config.rootFolder)) {
-  let files = fs.readdirSync(config.rootFolder);
+fs.exists(config.rootFolder, exists => {
+  if (exists) {
+    fs.readdir(config.rootFolder, (err, files) => {
+      if (files && files.length > 0)
+        files
+          .filter(v => v.match(toDelete))
+          .forEach(v => {
+            fs.remove(config.rootFolder + v);
+            console.log(`removed file: ${config.rootFolder + v}`);
+          });
 
-  if (files && files.length > 0)
-    files
-      .filter(v => v.match(toDelete))
-      .forEach(v => {
-        if (fs.existsSync(config.rootFolder + "/" + v)) {
-          fs.remove(config.rootFolder + "/" + v);
-          console.log(`removing ${config.rootFolder + "/" + v}...!`);
+      console.log("\nClean up finished\n\nStarting copying new build...!\n");
+
+      // add new
+      fs.exists(config.distPath, exists => {
+        if (exists) {
+          console.log("dist folder - " + config.distPath + " exists!");
+          fs.copy(config.distPath, config.rootFolder, function(err) {
+            if (err) return console.error(err);
+            console.log("overwrite success!");
+          });
+        } else {
+          console.error(
+            "adding new build failed, dist folder could not be found"
+          );
         }
       });
-}
-
-console.log("\nClean up finished\n\nStarting copying new build...!\n");
-
-// add new
-if (fs.existsSync(config.distPath)) {
-  console.log("target folder - " + config.distPath + " exists!");
-  fs.copy(config.distPath, config.rootFolder, function(err) {
-    if (err) return console.error(err);
-    console.log("overwrite success!");
-  });
-} else {
-  console.log(config.distPath + " folder does not exists!");
-}
+    });
+  } else {
+    console.error(
+      "Clean up and overwrite both failed , Root folder could not be found!"
+    );
+  }
+});
