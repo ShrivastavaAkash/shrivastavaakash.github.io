@@ -18,4 +18,6 @@ export class ProfileCardComponent implements OnInit {
     this.links = links;
     this.personalData = personalData;
   }
+
+  getExperience = (date: Date) => ((new Date().valueOf() - personalData.workingSince.valueOf()) / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1)
 }

@@ -104,10 +104,6 @@
         position: relative;
         cursor: pointer;
         
-        @media screen and (max-width: $mobileWidth) {
-            padding: 2vh;        
-        }
-
         &::before, &::after {   
             content: ''; 
             background: black;

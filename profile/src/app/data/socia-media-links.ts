@@ -20,11 +20,6 @@ export const links: any[] = [
         src: "https://www.linkedin.com/in/akash-shrivastava-1929a099/"
     },
     {
-        icon: "/assets/images/instagram.png",
-        name: "instagram",
-        src: "https://www.instagram.com/akash.exe/"
-    },
-    {
         icon: "/assets/images/github.png",
         name: "github",
         src: "https://github.com/ShrivastavaAkash/"

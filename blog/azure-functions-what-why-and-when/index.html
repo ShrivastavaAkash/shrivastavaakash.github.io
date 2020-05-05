@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://shrivastavaakash.github.io/favicon.ico"
+    />
+    <meta property="fb:app_id" content="1032282317109180" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website" />
+
+    		<meta name="image" content="https://i.pinimg.com/originals/4a/2a/d8/4a2ad824f3630e9cb1d0eb9d55cf2680.png" />
+		<meta property="og:image" content="https://i.pinimg.com/originals/4a/2a/d8/4a2ad824f3630e9cb1d0eb9d55cf2680.png" />
+		<meta name="description" content="A quick look into Microsoft Azure Functions: what they are, why and when you should got for them?" />
+		<meta property="og:description" content="A quick look into Microsoft Azure Functions: what they are, why and when you should got for them?" />
+		<title>Binding redirects for class library projects</title>
+		<meta name="title" content="Binding redirects for class library projects" />
+		<meta property="og:title" content="Binding redirects for class library projects" />
+		<meta name="author" content="Akash Shrivastava" />
+		<meta property="og:author" content="Akash Shrivastava" />
+		<meta name="theme-color" content="#3e3d4d" />
+		<meta property="og:theme-color" content="#3e3d4d" />
+
+
+    <script type="text/javascript">
+      var botPattern =
+        "(googlebot\/|bot|Googlebot smartphone|Googlebot-Mobile|Googlebot-Image|Google favicon|Mediapartners-Google|bingbot|slurp|java|wget|curl|Commons-HttpClient|Python-urllib|libwww|httpunit|nutch|phpcrawl|msnbot|jyxobot|FAST-WebCrawler|FAST Enterprise Crawler|biglotron|teoma|convera|seekbot|gigablast|exabot|ngbot|ia_archiver|GingerCrawler|webmon |httrack|webcrawler|grub.org|UsineNouvelleCrawler|antibot|netresearchserver|speedy|fluffy|bibnum.bnf|findlink|msrbot|panscient|yacybot|AISearchBot|IOI|ips-agent|tagoobot|MJ12bot|dotbot|woriobot|yanga|buzzbot|mlbot|yandexbot|purebot|Linguee Bot|Voyager|CyberPatrol|voilabot|baiduspider|citeseerxbot|spbot|twengabot|postrank|turnitinbot|scribdbot|page2rss|sitebot|linkdex|Adidxbot|blekkobot|ezooms|dotbot|Mail.RU_Bot|discobot|heritrix|findthatfile|europarchive.org|NerdByNature.Bot|sistrix crawler|ahrefsbot|Aboundex|domaincrawler|wbsearchbot|summify|ccbot|edisterbot|seznambot|ec2linkfinder|gslfbot|aihitbot|intelium_bot|facebookexternalhit|yeti|RetrevoPageAnalyzer|lb-spider|sogou|lssbot|careerbot|wotbox|wocbot|ichiro|DuckDuckBot|lssrocketcrawler|drupact|webcompanycrawler|acoonbot|openindexspider|gnam gnam spider|web-archive-net.com.bot|backlinkcrawler|coccoc|integromedb|content crawler spider|toplistbot|seokicks-robot|it2media-domain-crawler|ip-web-crawler.com|siteexplorer.info|elisabot|proximic|changedetection|blexbot|arabot|WeSEE:Search|niki-bot|CrystalSemanticsBot|rogerbot|360Spider|psbot|InterfaxScanBot|Lipperhey SEO Service|CC Metadata Scaper|g00g1e.net|GrapeshotCrawler|urlappendbot|brainobot|fr-crawler|binlar|SimpleCrawler|Livelapbot|Twitterbot|cXensebot|smtbot|bnf.fr_bot|A6-Indexer|ADmantX|Facebot|Twitterbot|OrangeBot|memorybot|AdvBot|MegaIndex|SemanticScholarBot|ltx71|nerdybot|xovibot|BUbiNG|Qwantify|archive.org_bot|Applebot|TweetmemeBot|crawler4j|findxbot|SemrushBot|yoozBot|lipperhey|y!j-asr|Domain Re-Animator Bot|AddThis)";
+      var re = new RegExp(botPattern, "i");
+      var userAgent = navigator.userAgent;
+      console.log("js Exec, UA: ", userAgent);
+      if (!re.test(userAgent)) {
+        console.warn("exeuting redirect", navigator.userAgent);
+        var segmentCount = 0;
+        var l = window.location;
+        l.replace(
+          l.protocol +
+            "//" +
+            l.hostname +
+            (l.port ? ":" + l.port : "") +
+            l.pathname
+              .split("/")
+              .slice(0, 1 + segmentCount)
+              .join("/") +
+            "/?p=/" +
+            l.pathname
+              .slice(1)
+              .split("/")
+              .slice(segmentCount)
+              .join("/")
+              .replace(/&/g, "~and~") +
+            (l.search ? "&q=" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+            l.hash
+        );
+      }
+    </script>
+    <style>
+      body {
+        padding: 20px;
+      }
+      * {
+        line-height: 100px;
+        margin: 60px 0px;
+        font-size: 40px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body style="font-size: 20px; line-height: 40px">
+    <h2 id="whatareazurefunctions">What are Azure functions?</h2>
+<p>Azure functions are one of the serverless offerings from Microsoft's Azure cloud platform. Serverless here means that these offerings completely abstract the infrastructure from the users availaing them. So, the developer only needs to worry about writing the code and upload them to serverless app and the Azure takes care of chosing the server resources, runtime, scaling, configurations, maintenance and everything that is needed for your code to run smoothly. These are perfect for when you need a small piece of code that's stateless for the most part and when you don't have enough time to deal with the problems of deciding the infrastructure/scaling or any deployment related problems really that you might face with traditional (somewhat) platforms like a VM, containers or App Service.</p>
+<p>All you need is your code, an Azure subscription and you are good to go with Azure functions. Within minutes you get:</p>
+<ol>
+<li>Up and running app with your choice of trigger and coding language (Azure function has <a href="https://docs.microsoft.com/en-in/azure/azure-functions/functions-overview#what-can-i-do-with-functions">wide enough list</a> for you to chose from)</li>
+<li>"Unlimited" automatically scalable infrastructure</li>
+<li>Secure prototcols (like Https for Http Trigger)</li>
+<li>Authentication (functions level, Azure active directory etc)</li>
+<li>CORS settings (again for Http triggered functions)</li>
+<li>Some additional features depending upon the Azure functions app plan you chose</li>
+</ol>
+<h2 id="whyshouldyouconsiderazurefunctions">Why should you consider Azure functions?</h2>
+<p>I have found the most attractive feature of these functions to be their pricing, which is fairly affordable for small to medium scale applications. Their are no fixed costs for reserved resources as there are none, the resources are allocated and charged only if the functions are executed, Microsoft markets it as <code>pay-per-use pricing</code>. Your bill depends on the number of executions and the time and resources the functions takes per execution.</p>
+<p>Along with pricing, there definitely is huge convenience in terms of getting the app up and running, you only have to care about writing code and that's pretty much all. These functions are fairly easy to setup and are able to handle any traffic smoothly. You don't have to give any criteria for scaling out/in or maintaining any of the server/runtime configurations.</p>
+<h2 id="whentochoseavoidazurefunctions">When to chose/avoid Azure functions?</h2>
+<p>This is an important question considering that while these functions are great, they are not fit for all situations. One needs to carefully assess the nature of their application and chose the right platform accordingly. In my experience, I found the functions to be most useful when you need a small piece of code that doesn't require persistent state and is meant to do a small task, a task that maybe required to be performed very frequently and concurrently with varying load at different times.</p>
+<p>I would go with these functions when, my code is meant to be:</p>
+<ol>
+<li>Used as a processing utility for messages in a queue</li>
+<li>Used for serving very volatile number of requests that may require easy and frequent scaling out and then back in</li>
+<li>Used for running a scheduled task (e.g. trigger some events, send out notifications etc.)</li>
+<li>Used for a non-user facing API (as functions are known to have <em>cold start</em> problems, especially when the functions goes idle a lot)</li>
+</ol>
+<p>The situations where I try to avoid these functions are when I'm trying to use these functions as:</p>
+<ol>
+<li>Stateful applications</li>
+<li>Applications requiring no/low response times (like a user facing API, due to cold start problems)</li>
+<li>Applications where scalability is not a priority at all</li>
+</ol>
+<h3 id="coldstartproblem">Cold start problem</h3>
+<p>Azure functions are only up when they are being used, more than 20 minutes of inactivity on these functions leads to deallocation of resources attached to these functions instances. When functions instances are up and have resources allocated, this state of instances is known as <code>hot</code> or <code>warm</code>, and when the resources are deallocated (due to either inactivity or scale in) these instances are called to be in <code>cold</code> state. Whenever a new instance is required to be prepared (state going from <code>cold</code> to <code>warm</code>) then a certain time is required to prepare the instance (for steps like installation of runtime and applications code etc). This time (AKA <em>cold start</em> time) affects the requests coming towards these instances and can be as high as 7-10 seconds.</p>
+<p>E.g. An azure app that has been idle for a while goes to <code>cold</code> state, now when an execution for the function is requested, a new instance is prepared to execute it, causing the delay in the request processing due to time taken by instance to get to <code>warm</code> state.</p>
+<h2 id="importantlinks">Important Links</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/en-in/azure/azure-functions/functions-overview">Azure functions overview documentation</a></li>
+<li><a href="https://azure.microsoft.com/en-in/blog/introducing-azure-functions/">Azure functions introduction</a></li>
+<li><a href="https://azure.microsoft.com/en-in/overview/serverless-computing/">Serverless computing</a></li>
+</ul>
+  </body>
+</html>
