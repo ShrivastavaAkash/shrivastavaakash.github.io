@@ -58,7 +58,7 @@ module.exports.blogs = new Map([
     {
       image: "https://i.pinimg.com/originals/4a/2a/d8/4a2ad824f3630e9cb1d0eb9d55cf2680.png",
       description:
-        "A quick look into Microsoft Azure Functions: what they are, why and when you should got for them?",
+        "A quick look into Microsoft Azure Functions: what they are, why and when you should go for them?",
       title: "Azure Functions: What? Why? & When?",
       date: "May 05, 2020",
       author: "Akash Shrivastava",
