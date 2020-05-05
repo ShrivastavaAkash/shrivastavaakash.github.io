@@ -59,7 +59,7 @@ export const blogs = new Map<string, any>([
       image: "https://i.pinimg.com/originals/4a/2a/d8/4a2ad824f3630e9cb1d0eb9d55cf2680.png",
       description:
         "A quick look into Microsoft Azure Functions: what they are, why and when you should got for them?",
-      title: "Binding redirects for class library projects",
+      title: "Azure Functions: What? Why? & When?",
       date: "May 05, 2020",
       author: "Akash Shrivastava",
       theme_color: "#3e3d4d",
