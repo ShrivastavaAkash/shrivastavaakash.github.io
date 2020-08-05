@@ -1,0 +1,131 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://shrivastavaakash.github.io/favicon.ico"
+    />
+    <meta property="fb:app_id" content="1032282317109180" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website" />
+
+    		<meta name="image" content="https://i.pinimg.com/originals/9d/90/d6/9d90d6d069886346f5efcb4774e51bae.png" />
+		<meta property="og:image" content="https://i.pinimg.com/originals/9d/90/d6/9d90d6d069886346f5efcb4774e51bae.png" />
+		<meta name="description" content="A quick look into the problems I used to have while working with feature branches and how I learned to not face them anymore." />
+		<meta property="og:description" content="A quick look into the problems I used to have while working with feature branches and how I learned to not face them anymore." />
+		<title>Working with feature branches: Rebase and Squash</title>
+		<meta name="title" content="Working with feature branches: Rebase and Squash" />
+		<meta property="og:title" content="Working with feature branches: Rebase and Squash" />
+		<meta name="author" content="Akash Shrivastava" />
+		<meta property="og:author" content="Akash Shrivastava" />
+		<meta name="theme-color" content="#3e3d4d" />
+		<meta property="og:theme-color" content="#3e3d4d" />
+
+
+    <script type="text/javascript">
+      var botPattern =
+        "(googlebot\/|bot|Googlebot smartphone|Googlebot-Mobile|Googlebot-Image|Google favicon|Mediapartners-Google|bingbot|slurp|java|wget|curl|Commons-HttpClient|Python-urllib|libwww|httpunit|nutch|phpcrawl|msnbot|jyxobot|FAST-WebCrawler|FAST Enterprise Crawler|biglotron|teoma|convera|seekbot|gigablast|exabot|ngbot|ia_archiver|GingerCrawler|webmon |httrack|webcrawler|grub.org|UsineNouvelleCrawler|antibot|netresearchserver|speedy|fluffy|bibnum.bnf|findlink|msrbot|panscient|yacybot|AISearchBot|IOI|ips-agent|tagoobot|MJ12bot|dotbot|woriobot|yanga|buzzbot|mlbot|yandexbot|purebot|Linguee Bot|Voyager|CyberPatrol|voilabot|baiduspider|citeseerxbot|spbot|twengabot|postrank|turnitinbot|scribdbot|page2rss|sitebot|linkdex|Adidxbot|blekkobot|ezooms|dotbot|Mail.RU_Bot|discobot|heritrix|findthatfile|europarchive.org|NerdByNature.Bot|sistrix crawler|ahrefsbot|Aboundex|domaincrawler|wbsearchbot|summify|ccbot|edisterbot|seznambot|ec2linkfinder|gslfbot|aihitbot|intelium_bot|facebookexternalhit|yeti|RetrevoPageAnalyzer|lb-spider|sogou|lssbot|careerbot|wotbox|wocbot|ichiro|DuckDuckBot|lssrocketcrawler|drupact|webcompanycrawler|acoonbot|openindexspider|gnam gnam spider|web-archive-net.com.bot|backlinkcrawler|coccoc|integromedb|content crawler spider|toplistbot|seokicks-robot|it2media-domain-crawler|ip-web-crawler.com|siteexplorer.info|elisabot|proximic|changedetection|blexbot|arabot|WeSEE:Search|niki-bot|CrystalSemanticsBot|rogerbot|360Spider|psbot|InterfaxScanBot|Lipperhey SEO Service|CC Metadata Scaper|g00g1e.net|GrapeshotCrawler|urlappendbot|brainobot|fr-crawler|binlar|SimpleCrawler|Livelapbot|Twitterbot|cXensebot|smtbot|bnf.fr_bot|A6-Indexer|ADmantX|Facebot|Twitterbot|OrangeBot|memorybot|AdvBot|MegaIndex|SemanticScholarBot|ltx71|nerdybot|xovibot|BUbiNG|Qwantify|archive.org_bot|Applebot|TweetmemeBot|crawler4j|findxbot|SemrushBot|yoozBot|lipperhey|y!j-asr|Domain Re-Animator Bot|AddThis)";
+      var re = new RegExp(botPattern, "i");
+      var userAgent = navigator.userAgent;
+      console.log("js Exec, UA: ", userAgent);
+      if (!re.test(userAgent)) {
+        console.warn("exeuting redirect", navigator.userAgent);
+        var segmentCount = 0;
+        var l = window.location;
+        l.replace(
+          l.protocol +
+            "//" +
+            l.hostname +
+            (l.port ? ":" + l.port : "") +
+            l.pathname
+              .split("/")
+              .slice(0, 1 + segmentCount)
+              .join("/") +
+            "/?p=/" +
+            l.pathname
+              .slice(1)
+              .split("/")
+              .slice(segmentCount)
+              .join("/")
+              .replace(/&/g, "~and~") +
+            (l.search ? "&q=" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+            l.hash
+        );
+      }
+    </script>
+    <style>
+      body {
+        padding: 20px;
+      }
+      * {
+        line-height: 100px;
+        margin: 60px 0px;
+        font-size: 40px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body style="font-size: 20px; line-height: 40px">
+    <p>In my day to day work, I usually do a lot of my work on <code>feature</code> branches that start out pretty neat. However, sometimes after I've pushed some changes to origin, I get some feedback or bugs that I want to fix, and I end up adding commits each time I push a new change, and that does no good to my <code>feature</code> branch's history. This is not how I plan to have a PR for smaller changes, I want a branch history where commits tell a story timeline of changes, instead of commits like</p>
+<ul>
+<li><code>bug fix</code></li>
+<li><code>fixed styling on the XYZ control</code></li>
+<li><code>big fix# 2</code>  😀</li>
+</ul>
+<p>This was until I started using <code>squash</code> utility, to combine my multiple small/incomplete commits into a single meaningful commit.</p>
+<p>Another problem I usually faced in my early days of <code>git</code> was merging changes that occured in my parent branch since I created a <code>feature</code> out of it. Until I learned about rebasing.</p>
+<p>Let's look at both of them.</p>
+<h1 id="rebase">Rebase</h1>
+<p>Rebase is a great utility from git, which does exactly what you'd expect it to do, by just reading it's name. You can change commit history of your <code>feature</code> branch from where you branched out of parent, and accomodate the new commits added to parent since. e.g.</p>
+<p>Say you branched out at commit <strong>PC4</strong></p>
+<pre><code>    PC1 -&gt; PC2 -&gt; PC3 -&gt; PC4                  // parent branch (in my case `master`)
+                        \
+                         \
+                          C1 -&gt; C2            // feature branch
+                                ^HEAD
+</code></pre>
+<p>Now, the parent is updated with 2 new commits <strong>PC5</strong> &amp; <strong>PC6</strong></p>
+<pre><code>  PC1 -&gt; PC2 -&gt; PC3 -&gt; PC4 -&gt; PC5 -&gt; PC6       // parent branch (in my case `master`)
+                        \
+                         \
+                          C1 -&gt; C2             // feature branch
+                                ^HEAD
+</code></pre>
+<p>Now, what a rebase (e.g. <code>git rebase parent</code>) would change the base commit of your feature branch to latest commit in parent branch (from <strong>PC4</strong> to <strong>PC6</strong>), something like:</p>
+<pre><code>  PC1 -&gt; PC2 -&gt; PC3 -&gt; PC4 -&gt; PC5 -&gt; PC6                       // parent branch (in my case `master`)
+                                        \
+                                         \
+                                          C1 -&gt; C2             // feature branch
+                                                ^HEAD
+</code></pre>
+<p>This results in a clean feature branch history, with the sequence of commits as they are merged to parent. This makes the commit history as good as if you'd have created a feature branch right now and did all your changes at this instant.
+Also, this way you don't create an extra commit (merge commit) that you get if you had merged the parent branch in your feature. See <a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">merging vs rebasing</a> if you want to know more. </p>
+<p>Now, just like merge, you may have conflicts at the time of rebasing, this is beacuse some of the new commits in parent may have changes at the same places as your feature branch commits. Just resolve them and continue rebase (<code>git rebase --continue</code>), all of it is happening on your feature branch by the way, at no point in this step you are modifying the parent branch.</p>
+<h1 id="squash">Squash</h1>
+<p>Now, going back to my original problem, where I end up making multiple commits in my feature branch, e.g.</p>
+<pre><code>Commit history
+---------------
+tyagscagslk     fixed bug                               // related to last commit
+maschcagcbc     updated search input width              // related to last commit
+kajhsvcachv     Added search to employee list panel     // planned
+aklscnackas     Last commit                             // commits till parent branch
+:
+:
+:
+:
+akscnsackac     First commit
+</code></pre>
+<p>Here, I only planned to have one commit, called "Added search to employee list panel", however, after code review and QA, I ended up adding 2 more commits.</p>
+<p>Now, for the sake of keeping clean history and to be batter able to backtrack or rollback, I prefer squashing these commits into a single commit.
+So, if I have all these 3 commits locally and I want to squash them together, I'll first do </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <code>git reset --soft HEAD~3</code></p>
+<p>This'll undo my last 3 commits (<code>git commit</code>), and keep the changes, now I can just commit all if them at once with a new commit message.</p>
+<p>Or, you can use rebase with <code>interactive</code> option to pick and squash, this video explains it quite well:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/V5KrD7CmO4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p><br /></p>
+<p>Or if you use visual studio, it's even easier. <a href="https://medium.com/corrado-cavalli/squash-commits-in-visual-studio-b469ef021436">check out this blog for more info.</a></p>
+<p><img src="https://i.pinimg.com/originals/3e/ee/9b/3eee9b077354d8aecc19703b2bdff778.jpg" alt="squash-in-vs" /></p>
+<p>After I started using these options, it surely did make my commits much cleaner, and I no longer have to think creative ways to sugercoat commit messages like <code>bugfix #2</code> 😜. </p>
+  </body>
+</html>

@@ -65,5 +65,18 @@ module.exports.blogs = new Map([
       theme_color: "#3e3d4d",
       tags: ["azure", "serverless", "azure-functions"]
     }
-  ]
+  ],
+  [
+    "working-with-feature-branches",
+    {
+      image: "https://i.pinimg.com/originals/9d/90/d6/9d90d6d069886346f5efcb4774e51bae.png",
+      description:
+        "A quick look into the problems I used to have while working with feature branches and how I learned to not face them anymore.",
+      title: "Working with feature branches: Rebase and Squash",
+      date: "Aug 05, 2020",
+      author: "Akash Shrivastava",
+      theme_color: "#3e3d4d",
+      tags: ["git"]
+    }
+  ],
 ]);
