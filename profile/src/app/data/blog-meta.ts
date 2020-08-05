@@ -75,7 +75,7 @@ export const blogs = new Map<string, any>([
       title: "Working with feature branches: Rebase and Squash",
       date: "Aug 05, 2020",
       author: "Akash Shrivastava",
-      theme_color: "#3e3d4d",
+      theme_color: "#0c5a61",
       tags: ["git"]
     }
   ],
