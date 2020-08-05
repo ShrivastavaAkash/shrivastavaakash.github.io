@@ -9,7 +9,12 @@ body, html {
     vertical-align: baseline;
     color: $primaryColor;
     font-family: $font-primary;
+
+    iframe, img {
+        max-width: 100%;
+    }
 }
+
 
 .fb-comments iframe {
     width: 100%!important;
